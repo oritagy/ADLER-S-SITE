@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adler Jewelry — טבעות אירוסין</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{--bg:#fff;--text:#0b0b0b;--muted:#6b7280;--border:#e5e7eb}
+    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.88);backdrop-filter:saturate(150%) blur(8px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+    .brand{font-weight:800}
+    .menu{display:flex;gap:18px;flex-wrap:wrap}
+    .menu a{padding:8px 10px;border-radius:10px}
+    .menu a:hover{background:#f4f4f5}
+    .hero{margin:20px 0}.hero img{width:100%;border-radius:24px;border:1px solid var(--border);object-fit:cover;aspect-ratio:21/9}
+    h1{margin:8px 0 16px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff}
+    .card .thumb{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+    .card .body{padding:12px}
+    .price{color:var(--muted)} .price .hi{color:#2563eb;font-weight:700}
+    @media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<header><div class="container nav"><div class="brand">Adler Jewelry</div>
+<nav class="menu">
+  <a href="index.html">בית</a>
+  <a href="engagement.html">טבעות אירוסין</a>
+  <a href="rings.html">טבעות</a>
+  <a href="necklaces.html">שרשראות</a>
+  <a href="earrings.html">עגילים</a>
+  <a href="bracelets.html">צמידים</a>
+  <a href="about.html">אודות</a>
+</nav></div></header>
+<main class="container">
+  <section class="hero"><img src="assets/hero.jpg" alt="טבעות אירוסין"></section>
+  <h1>טבעות אירוסין</h1>
+  <div class="grid">
+    <article class="card"><div class="thumb"><img src="assets/pear-gold.png" alt="Emma Pear"></div><div class="body"><h3>Emma — PEAR זהב צהוב</h3><p class="price">מעבדה ₪ 3,700 · טבעי <span class="hi">₪ 11,000</span></p></div></article>
+    <article class="card"><div class="thumb"><img src="assets/model-maya-1.png" alt="מאיה"></div><div class="body"><h3>Maya Lifestyle</h3><p class="price">צילום דוגמנית</p></div></article>
+    <article class="card"><div class="thumb"><img src="https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?q=80&w=1200&auto=format&fit=crop" alt="Classic"></div><div class="body"><h3>Classic Gold</h3><p class="price">דוגמה</p></div></article>
+  </div>
+</main>
+</body>
+</html>
