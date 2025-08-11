@@ -1,219 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adler Jewelry — תכשיטים מעוצבים</title>
-  <meta name="description" content="Adler Jewelry – טבעות, עגילים, שרשראות ותכשיטי אירוסין בעיצוב נקי ואלגנטי." />
-  <link rel="icon" href="favicon.ico" />
-
+  <title>Adler Jewelry — דף הבית</title>
+  <meta name="description" content="תכשיטי יוקרה בעבודת יד – טבעות, עגילים, שרשראות ועד.">
+  <link rel="icon" href="favicon.ico">
   <style>
     :root{
-      --bg:#ffffff;
-      --text:#111;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --brand:#111;
-      --brand-soft:#0c0c0c0a;
+      --bg:#ffffff; --text:#111; --muted:#6b7280; --border:#e5e7eb; --brand:#0f172a;
+      --card:#f8fafc; --radius:22px;
     }
-
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;background:var(--bg);color:var(--text);
-      font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif
+    *,*::before,*::after{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, Helvetica, sans-serif;
+      background:var(--bg); color:var(--text);
     }
+    a{ color:inherit; text-decoration:none }
+    img{ max-width:100%; height:auto; display:block }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-
-    .container{max-width:1200px;margin:0 auto;padding:24px}
-
-    /* Header / nav */
+    /* Header / Nav */
     header{
-      position:sticky;top:0;z-index:50;background:#fff;
-      border-bottom:1px solid var(--border);backdrop-filter:blur(8px)
+      position:sticky; top:0; z-index:50;
+      background:#fff; backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid var(--border);
     }
-    .brand{font-weight:800;letter-spacing:.04em}
-    .nav{
-      display:flex;justify-content:space-between;align-items:center;gap:18px;
-      height:64px
-    }
-    .menu{display:flex;gap:18px;align-items:center}
-    .menu a{
-      padding:8px 10px;border-radius:22px
-    }
-    .menu a:hover{
-      background:var(--brand-soft)
-    }
+    .container{ width:min(1200px, 92vw); margin-inline:auto; padding:18px 0 }
+    .row{ display:flex; align-items:center; justify-content:space-between; gap:18px }
+    .brand{ font-weight:800; letter-spacing:.02em; }
+    nav a{ padding:10px 14px; border-radius:12px; }
+    nav a:hover{ background:#f3f4f6 }
 
     /* Hero */
     .hero{
-      display:grid;grid-template-columns:1fr;gap:18px;align-items:center;
-      margin:24px 0
+      margin:26px 0 14px 0;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
     }
-    .hero .txt h1{
-      margin:0 0 10px 0;font-size:clamp(24px, 3vw, 36px)
+    .hero-wrap{ padding:18px }
+    .hero-title{
+      font-size:clamp(28px, 3.5vw, 44px);
+      margin:0 0 6px 0;
     }
-    .hero .txt p{margin:0;color:var(--muted)}
+    .hero-sub{ color:var(--muted); margin:0 0 12px 0 }
+    .hero-img{
+      width:100%;
+      height:auto;
+      border-radius:18px;
+      border:1px solid var(--border);
+    }
 
-    .hero .img{
-      border:1px solid var(--border);border-radius:24px;overflow:hidden;
-      aspect-ratio:21/9;object-fit:cover
+    /* Categories grid */
+    .section-title{ font-size:26px; margin:24px 0 10px }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
     }
+    @media (max-width:1024px){ .grid{ grid-template-columns:repeat(3,1fr) } }
+    @media (max-width:720px){ .grid{ grid-template-columns:repeat(2,1fr) } }
 
-    /* Category grid */
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 0}
     .card{
-      display:block;border:1px solid var(--border);border-radius:16px;overflow:hidden;
-      background:#fff;transition:transform .12s ease, box-shadow .12s ease
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      transition:transform .18s ease, box-shadow .18s ease;
+      display:flex; flex-direction:column;
     }
-    .card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 3px 16px rgba(0,0,0,.06)
-    }
-    .thumb{aspect-ratio:1/1;object-fit:cover}
-    .card .cap{
-      padding:12px;font-weight:600;display:flex;justify-content:space-between;align-items:center
-    }
-    .cap small{color:var(--muted);font-weight:400}
-
-    /* Featured products sample */
-    .section-title{
-      font-weight:800;font-size:clamp(20px,2.4vw,28px);margin:36px 0 16px
-    }
-    .prod{
-      border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff
-    }
-    .prod .body{padding:14px}
-    .price{display:flex;align-items:center;gap:10px}
-    .price .main{font-weight:700}
-    .price .note{color:var(--muted);font-size:14px}
+    .card:hover{ transform:translateY(-2px); box-shadow:0 6px 24px rgba(0,0,0,.06) }
+    .thumb{ width:100%; aspect-ratio:auto; display:block }
+    .cap{ padding:12px 14px; display:flex; flex-direction:column; gap:4px }
+    .cap strong{ font-weight:700 }
+    .cap small{ color:var(--muted) }
 
     /* Footer */
     footer{
-      border-top:1px solid var(--border);margin-top:40px
-    }
-    footer .foot{
-      padding:24px 0;color:var(--muted);font-size:14px
-    }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .hero{grid-template-columns:1fr}
-    }
-    @media (max-width: 640px){
-      .grid{grid-template-columns:1fr}
+      border-top:1px solid var(--border);
+      margin-top:28px; padding:26px 0;
+      color:var(--muted);
     }
   </style>
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <div class="container">
-      <nav class="nav">
+      <div class="row">
         <div class="brand">Adler Jewelry</div>
-        <div class="menu">
+        <nav class="row" style="gap:6px">
           <a href="index.html">בית</a>
-          <a href="engagement.html">טבעות אירוסין</a>
           <a href="RINGS.HTML">טבעות</a>
-          <a href="necklaces.html">שרשראות</a>
           <a href="earrings.html">עגילים</a>
-          <a href="bracelets.html">צמידים</a>
-          <a href="#contact">צור קשר</a>
-        </div>
-      </nav>
+          <a href="necklaces.html">שרשראות</a>
+          <a href="engagement.html">צמידים</a>
+          <a href="bracelets.html">מגע</a>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <main class="container">
+    <!-- Hero -->
     <section class="hero">
-      <div class="txt">
-        <h1>תכשיטים שנעצרים בזמן</h1>
-        <p>איכות, דיוק ופשטות אלגנטית — קולקציות מעודכנות בעבודת יד.</p>
-      </div>
-      <img class="img" src="assets/Assetshero.jpg" alt="Hero Image" />
-    </section>
-
-    <!-- Category grid (קישורים אמיתיים לעמודים) -->
-    <section aria-label="קטגוריות">
-      <div class="grid">
-        <a class="card" href="engagement.html" aria-label="טבעות אירוסין">
-          <img class="thumb" src="https://images.unsplash.com/photo-1603574672800-82b2a4c64bb1?q=80&w=1200&auto=format&fit=crop" alt="טבעות אירוסין" />
-          <div class="cap">טבעות אירוסין <small>הקולקציה</small></div>
-        </a>
-
-        <a class="card" href="RINGS.HTML" aria-label="טבעות">
-          <img class="thumb" src="https://images.unsplash.com/photo-1603574678012-d24560880210?q=80&w=1200&auto=format&fit=crop" alt="טבעות" />
-          <div class="cap">טבעות <small>זהב/פלטינה</small></div>
-        </a>
-
-        <a class="card" href="earrings.html" aria-label="עגילים">
-          <img class="thumb" src="https://images.unsplash.com/photo-1507915135761-41a0a222c709?q=80&w=1200&auto=format&fit=crop" alt="עגילים" />
-          <div class="cap">עגילים <small>עדינים/Statement</small></div>
-        </a>
-
-        <a class="card" href="necklaces.html" aria-label="שרשראות">
-          <img class="thumb" src="https://images.unsplash.com/photo-1612336307429-fc155d9c88d2?q=80&w=1200&auto=format&fit=crop" alt="שרשראות" />
-          <div class="cap">שרשראות <small>קלאסיות</small></div>
-        </a>
-
-        <a class="card" href="bracelets.html" aria-label="צמידים">
-          <img class="thumb" src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=1200&auto=format&fit=crop" alt="צמידים" />
-          <div class="cap">צמידים <small>חדשים</small></div>
-        </a>
+      <div class="hero-wrap">
+        <h1 class="hero-title">הכְּשִׁיטִים שנעצרים בזמן</h1>
+        <p class="hero-sub">איכות ללא פשרות, עבודת יד קפדנית וסטנדרט זהב שקט.</p>
+        <!-- חשובה התאמה לשם הקובץ בתיקיית assets -->
+        <img class="hero-img" src="./assets/Assetshero.jpg?v=3" alt="Hero Image">
       </div>
     </section>
 
-    <!-- Featured products (דוגמא) -->
-    <h2 class="section-title">מוצרים נבחרים</h2>
+    <!-- Categories -->
+    <h2 class="section-title">קטגוריות</h2>
+    <section class="grid">
+      <a class="card" href="RINGS.HTML" aria-label="טבעות">
+        <img class="thumb" src="assets/rings.jpg?v=1" alt="טבעות">
+        <div class="cap"><strong>טבעות</strong><small>זהב / פלטינה</small></div>
+      </a>
 
-    <div class="grid">
-      <article class="prod">
-        <img src="https://images.unsplash.com/photo-1603574678012-d24560880210?q=80&w=1200&auto=format&fit=crop" alt="Classic Gold" />
-        <div class="body">
-          <div style="font-weight:700;margin-bottom:6px">Classic Gold</div>
-          <div class="price">
-            <span class="main">₪ 3,700</span>
-            <span class="note">מעבדה</span>
-          </div>
-        </div>
-      </article>
+      <a class="card" href="earrings.html" aria-label="עגילים">
+        <img class="thumb" src="assets/earrings.jpg?v=1" alt="עגילים">
+        <div class="cap"><strong>עגילים</strong><small>יהלומים ואבני חן</small></div>
+      </a>
 
-      <article class="prod">
-        <img src="assets/מאיה 1.png" alt="טבעת מאיה — דוגמית" />
-        <div class="body">
-          <div style="font-weight:700;margin-bottom:6px">דוגמית “מאיה”</div>
-          <div class="price">
-            <span class="main">₪ 11,000</span>
-            <span class="note">טבעי</span>
-          </div>
-        </div>
-      </article>
+      <a class="card" href="necklaces.html" aria-label="שרשראות">
+        <img class="thumb" src="assets/necklaces.jpg?v=1" alt="שרשראות">
+        <div class="cap"><strong>שרשראות</strong><small>סגנון שחור-לבן/קלאסי</small></div>
+      </a>
 
-      <article class="prod">
-        <img src="assets/אגס זהב.png" alt="Emma — PEAR" />
-        <div class="body">
-          <div style="font-weight:700;margin-bottom:6px">Emma — PEAR זהב צהוב</div>
-          <div class="price">
-            <span class="main">₪ 11,000</span>
-            <span class="note">טבעי</span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <!-- Contact -->
-    <h2 id="contact" class="section-title">צור קשר</h2>
-    <p>נשמח לשמוע ממך. שלחי הודעה/ווטסאפ או קבעי פגישה באולם התצוגה.</p>
+      <a class="card" href="bracelets.html" aria-label="צמידים">
+        <img class="thumb" src="assets/bracelets.jpg?v=1" alt="צמידים">
+        <div class="cap"><strong>צמידים</strong><small>קו קלאסי ועדין</small></div>
+      </a>
+    </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="container foot">
-      © Adler Jewelry — כל הזכויות שמורות
+    <div class="container">
+      <div class="row">
+        <div>© Adler Jewelry — כל הזכויות שמורות</div>
+        <div style="color:var(--muted)">טל׳: 03-1234567</div>
+      </div>
     </div>
   </footer>
 </body>
